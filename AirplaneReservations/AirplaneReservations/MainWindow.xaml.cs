@@ -30,6 +30,11 @@ namespace AirplaneReservations
             reservations = Enumerable.Repeat<bool>(false, 10).ToList();
         }
 
+        public bool IsOneAReserved
+        {
+            get { return IsReserved(0); }
+        }
+
         /// <summary>
         /// Click handler for the Help menu item, opens the help explanation dialog.
         /// </summary>
@@ -82,6 +87,17 @@ namespace AirplaneReservations
                     index++;
                 }
             }
+        }
+
+        private void Button1A_Click(object sender, RoutedEventArgs args)
+        {
+            reservations[0] = true;
+            ((Button)sender).IsEnabled = false;
+        }
+
+        private bool IsReserved(int index)
+        {
+            return reservations[index];
         }
 
         private List<bool> reservations;

@@ -1,6 +1,7 @@
 ﻿<Window x:Class="AirplaneReservations.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
         Title="Airplane Seat Reservations" Height="350" Width="525">
     <Grid>
         <Grid.RowDefinitions>
@@ -14,5 +15,6 @@
             </MenuItem>
             <MenuItem Header="_Help" Click="Help_Click" />
         </Menu>
+        <Button Grid.Column="0" Grid.Row="1" Content="1A" Click="Button1A_Click"/>
     </Grid>
 </Window>

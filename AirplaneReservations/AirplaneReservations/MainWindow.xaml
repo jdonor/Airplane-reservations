@@ -12,10 +12,36 @@
             <MenuItem Header="_File">
                 <MenuItem Header="_Save" Click="Save_Click" />
                 <MenuItem Header="_Load" Click="Load_Click" />
+                <MenuItem Header="_Clear" Click="Clear_Click" />
             </MenuItem>
             <MenuItem Header="_Help" Click="Help_Click" />
         </Menu>
-        <!-- Insert other grid -->
-        <Button Grid.Column="0" Grid.Row="1" Name="OneA" Content="1A" Click="Button1A_Click"/>
+        <Grid Grid.Column="0" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1" Grid.Row="2" Name="OneA" Content="1A" Padding="16" Click="Button1A_Click" />
+            <Button Grid.Column="1" Grid.Row="1" Name="OneB" Content="1B" Padding="16" Click="Button1B_Click" />
+            <Button Grid.Column="2" Grid.Row="2" Name="TwoA" Content="2A" Padding="16" Click="Button2A_Click" />
+            <Button Grid.Column="2" Grid.Row="1" Name="TwoB" Content="2B" Padding="16" Click="Button2B_Click" />
+            <Button Grid.Column="3" Grid.Row="2" Name="ThreeA" Content="3A" Padding="16" Click="Button3A_Click" />
+            <Button Grid.Column="3" Grid.Row="1" Name="ThreeB" Content="3B" Padding="16" Click="Button3B_Click" />
+            <Button Grid.Column="4" Grid.Row="2" Name="FourA" Content="4A" Padding="16" Click="Button4A_Click" />
+            <Button Grid.Column="4" Grid.Row="1" Name="FourB" Content="4B" Padding="16" Click="Button4B_Click" />
+            <Button Grid.Column="5" Grid.Row="2" Name="FiveA" Content="5A" Padding="16" Click="Button5A_Click" />
+            <Button Grid.Column="5" Grid.Row="1" Name="FiveB" Content="5B" Padding="16" Click="Button5B_Click" />
+        </Grid>
     </Grid>
 </Window>

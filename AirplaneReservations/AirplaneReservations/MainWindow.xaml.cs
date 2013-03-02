@@ -28,22 +28,22 @@ namespace AirplaneReservations
             InitializeComponent();
 
             // Initialize reservation array, 5 rows 2 seats per row
-            Reservations = Enumerable.Repeat<bool>(false, 10).ToList();
+            Reservations = Enumerable.Repeat<bool>(true, 10).ToList();
             UpdateButtons();
         }
 
         public List<bool> Reservations { get; set; }
 
         /// <summary>
-        /// Click handler for the Help menu item, opens the help explanation dialog.
+        /// Click handler for the Help menu item, opens the help explanation dialog
         /// </summary>
         private void Help_Click(object sender, RoutedEventArgs args)
         {
-            MessageBox.Show("This is a simple seat reservation program." + Environment.NewLine + "Click a seat to reserve it, use the File menu to save and load reservations.");
+            MessageBox.Show("This is a simple seat reservation program." + Environment.NewLine + "Click a seat to reserve it, use the File menu to save, load and clear reservations.");
         }
 
         /// <summary>
-        /// Click handler for the Save menu item, opens the save file dialog.
+        /// Click handler for the Save menu item, opens the save file dialog
         /// </summary>
         private void Save_Click(object sender, RoutedEventArgs args)
         {
@@ -64,7 +64,7 @@ namespace AirplaneReservations
         }
 
         /// <summary>
-        /// Click handler for the Load menu item, opens the load file dialog.
+        /// Click handler for the Load menu item, opens the load file dialog
         /// </summary>
         private void Load_Click(object sender, RoutedEventArgs args)
         {
@@ -89,14 +89,119 @@ namespace AirplaneReservations
             UpdateButtons();
         }
 
+        /// <summary>
+        /// Click handler for the Clear menu item, clears all reservations
+        /// </summary>
+        private void Clear_Click(object sender, RoutedEventArgs args)
+        {
+            Reservations = Enumerable.Repeat<bool>(true, 10).ToList();
+            UpdateButtons();
+        }
+
+        /// <summary>
+        /// Method to update the state of the buttons to correspond to the current seat reservations
+        /// </summary>
         private void UpdateButtons()
         {
             OneA.IsEnabled = Reservations[0];
+            OneB.IsEnabled = Reservations[1];
+            TwoA.IsEnabled = Reservations[2];
+            TwoB.IsEnabled = Reservations[3];
+            ThreeA.IsEnabled = Reservations[4];
+            ThreeB.IsEnabled = Reservations[5];
+            FourA.IsEnabled = Reservations[6];
+            FourB.IsEnabled = Reservations[7];
+            FiveA.IsEnabled = Reservations[8];
+            FiveB.IsEnabled = Reservations[9];
         }
 
+        /// <summary>
+        /// Click handler for the 1A button, reserves the seat and updates the buttons
+        /// </summary>
         private void Button1A_Click(object sender, RoutedEventArgs args)
         {
             Reservations[0] = false;
+            UpdateButtons();
+        }
+
+        /// <summary>
+        /// Click handler for the 1B button, reserves the seat and updates the buttons
+        /// </summary>
+        private void Button1B_Click(object sender, RoutedEventArgs args)
+        {
+            Reservations[1] = false;
+            UpdateButtons();
+        }
+
+        /// <summary>
+        /// Click handler for the 2A button, reserves the seat and updates the buttons
+        /// </summary>
+        private void Button2A_Click(object sender, RoutedEventArgs args)
+        {
+            Reservations[2] = false;
+            UpdateButtons();
+        }
+
+        /// <summary>
+        /// Click handler for the 2B button, reserves the seat and updates the buttons
+        /// </summary>
+        private void Button2B_Click(object sender, RoutedEventArgs args)
+        {
+            Reservations[3] = false;
+            UpdateButtons();
+        }
+
+        /// <summary>
+        /// Click handler for the 3A button, reserves the seat and updates the buttons
+        /// </summary>
+        private void Button3A_Click(object sender, RoutedEventArgs args)
+        {
+            Reservations[4] = false;
+            UpdateButtons();
+        }
+
+        /// <summary>
+        /// Click handler for the 3B button, reserves the seat and updates the buttons
+        /// </summary>
+        private void Button3B_Click(object sender, RoutedEventArgs args)
+        {
+            Reservations[5] = false;
+            UpdateButtons();
+        }
+
+        /// <summary>
+        /// Click handler for the 4A button, reserves the seat and updates the buttons
+        /// </summary>
+        private void Button4A_Click(object sender, RoutedEventArgs args)
+        {
+            Reservations[6] = false;
+            UpdateButtons();
+        }
+
+        /// <summary>
+        /// Click handler for the 4B button, reserves the seat and updates the buttons
+        /// </summary>
+        private void Button4B_Click(object sender, RoutedEventArgs args)
+        {
+            Reservations[7] = false;
+            UpdateButtons();
+        }
+
+        /// <summary>
+        /// Click handler for the 5A button, reserves the seat and updates the buttons
+        /// </summary>
+        private void Button5A_Click(object sender, RoutedEventArgs args)
+        {
+            Reservations[8] = false;
+            UpdateButtons();
+        }
+
+        /// <summary>
+        /// Click handler for the 5B button, reserves the seat and updates the buttons
+        /// </summary>
+        private void Button5B_Click(object sender, RoutedEventArgs args)
+        {
+            Reservations[9] = false;
             UpdateButtons();
         }
     }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -27,13 +28,11 @@ namespace AirplaneReservations
             InitializeComponent();
 
             // Initialize reservation array, 5 rows 2 seats per row
-            reservations = Enumerable.Repeat<bool>(false, 10).ToList();
+            Reservations = Enumerable.Repeat<bool>(false, 10).ToList();
+            UpdateButtons();
         }
 
-        public bool IsOneAReserved
-        {
-            get { return IsReserved(0); }
-        }
+        public List<bool> Reservations { get; set; }
 
         /// <summary>
         /// Click handler for the Help menu item, opens the help explanation dialog.
@@ -59,7 +58,7 @@ namespace AirplaneReservations
             // Use the obtained filename to save the contents of the reservations list to a file
             using (StreamWriter writer = new StreamWriter(filename, false))
             {
-                foreach (bool seat in reservations)
+                foreach (bool seat in Reservations)
                     writer.WriteLine(seat);
             }
         }
@@ -83,23 +82,22 @@ namespace AirplaneReservations
                 int index = 0;
                 while (!reader.EndOfStream)
                 {
-                    reservations[index] = bool.Parse(reader.ReadLine());
+                    Reservations[index] = bool.Parse(reader.ReadLine());
                     index++;
                 }
             }
+            UpdateButtons();
+        }
+
+        private void UpdateButtons()
+        {
+            OneA.IsEnabled = Reservations[0];
         }
 
         private void Button1A_Click(object sender, RoutedEventArgs args)
         {
-            reservations[0] = true;
-            ((Button)sender).IsEnabled = false;
+            Reservations[0] = false;
+            UpdateButtons();
         }
-
-        private bool IsReserved(int index)
-        {
-            return reservations[index];
-        }
-
-        private List<bool> reservations;
     }
 }

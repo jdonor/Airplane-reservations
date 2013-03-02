@@ -15,6 +15,7 @@
             </MenuItem>
             <MenuItem Header="_Help" Click="Help_Click" />
         </Menu>
-        <Button Grid.Column="0" Grid.Row="1" Content="1A" Click="Button1A_Click"/>
+        <!-- Insert other grid -->
+        <Button Grid.Column="0" Grid.Row="1" Name="OneA" Content="1A" Click="Button1A_Click"/>
     </Grid>
 </Window>
